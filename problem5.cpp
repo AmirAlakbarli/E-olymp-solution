@@ -24,29 +24,34 @@ void generateMultiplicativePartitions(int n, vector<int> &factors, vector<vector
     }
 }
 
-// The fastest algorithm to find nth prime number
+int isPrime(int k)
+{
+    if (k <= 1)
+        return 0;
+    if (k == 2 || k == 3)
+        return 1;
+    if (k % 2 == 0 || k % 3 == 0)
+        return 0;
+    for (int i = 5; i * i <= k; i = i + 6)
+        if (k % i == 0 || k % (i + 2) == 0)
+            return 0;
+
+    return 1;
+}
+
 int nthPrime(int n)
 {
-    int count = 0;
     int i = 2;
-    while (count < n)
+
+    while (n > 0)
     {
-        bool isPrime = true;
-        for (int j = 2; j <= i / 2; j++)
-        {
-            if (i % j == 0)
-            {
-                isPrime = false;
-                break;
-            }
-        }
-        if (isPrime)
-        {
-            count++;
-        }
+        if (isPrime(i))
+            n--;
+
         i++;
     }
-    return i - 1;
+    i--;
+    return i;
 }
 
 int main()
@@ -56,31 +61,31 @@ int main()
     num1 = 2 * n;
     num2 = 2 * n - 1;
 
-    vector<vector<int>> partitions_of_num1, partitions_of_num2;
-    vector<int> factor_sof_num1, factors_of_num2;
-    generateMultiplicativePartitions(num1, factor_sof_num1, partitions_of_num1);
-    generateMultiplicativePartitions(num2, factors_of_num2, partitions_of_num2);
+    vector<vector<int>> partitionsOfNum1, partitionsOfNum2;
+    vector<int> factorsOfNum1, factorsOfNum2;
+    generateMultiplicativePartitions(num1, factorsOfNum1, partitionsOfNum1);
+    generateMultiplicativePartitions(num2, factorsOfNum2, partitionsOfNum2);
 
-    // Back Sort all the vectors in partitions_of_num1
-    for (auto &p : partitions_of_num1)
+    // Back Sort all the vectors in partitionsOfNum1
+    for (auto &p : partitionsOfNum1)
     {
         sort(p.rbegin(), p.rend());
     }
 
-    // Back Sort all the vectors in partitions_of_num2
-    for (auto &p : partitions_of_num2)
+    // Back Sort all the vectors in partitionsOfNum2
+    for (auto &p : partitionsOfNum2)
     {
         sort(p.rbegin(), p.rend());
     }
 
-    // Sort the vecotrs in partitions_of_num1 by lexicographical order
-    sort(partitions_of_num1.begin(), partitions_of_num1.end());
+    // Sort the vecotrs in partitionsOfNum1 by lexicographical order
+    sort(partitionsOfNum1.begin(), partitionsOfNum1.end());
 
-    // Sort the vecotrs in partitions_of_num2 by lexicographical order
-    sort(partitions_of_num2.begin(), partitions_of_num2.end());
+    // Sort the vecotrs in partitionsOfNum2 by lexicographical order
+    sort(partitionsOfNum2.begin(), partitionsOfNum2.end());
 
-    // subtract 1 from each element in the partitions_of_num1 vector
-    for (auto &p : partitions_of_num1)
+    // subtract 1 from each element in the partitionsOfNum1 vector
+    for (auto &p : partitionsOfNum1)
     {
         for (int i = 0; i < p.size(); i++)
         {
@@ -88,8 +93,8 @@ int main()
         }
     }
 
-    // subtract 1 from each element in the partitions_of_num2 vector
-    for (auto &p : partitions_of_num2)
+    // subtract 1 from each element in the partitionsOfNum2 vector
+    for (auto &p : partitionsOfNum2)
     {
         for (int i = 0; i < p.size(); i++)
         {
@@ -98,12 +103,12 @@ int main()
     }
 
     unsigned long long result = 1;
-    for (int i = 0; i < partitions_of_num1[0].size(); i++)
+    for (int i = 0; i < partitionsOfNum1[0].size(); i++)
     {
-        result *= pow(nthPrime(i + 1), partitions_of_num1[0][i]);
+        result *= pow(nthPrime(i + 1), partitionsOfNum1[0][i]);
     }
 
-    for (auto p : partitions_of_num1)
+    for (auto p : partitionsOfNum1)
     {
         unsigned long long product = 1;
 
@@ -131,7 +136,7 @@ int main()
         }
     }
 
-    for (auto p : partitions_of_num2)
+    for (auto p : partitionsOfNum2)
     {
         unsigned long long product = 1;
 

@@ -16,9 +16,9 @@ int main()
 
     while (a-- > 1)
     {
-        auto it_orig = c.begin(), it = it_orig;
+        auto itOrig = c.begin(), it = itOrig;
         long long s = (long long)round(p * ((*it++) + (*it++)) / 100.0);
-        c.erase(it_orig, it);
+        c.erase(itOrig, it);
         c.insert(s);
     }
 

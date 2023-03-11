@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-int prime_Or_Not(int x)
+int primeOrNot(int x)
 {
     int divisor;
     for (divisor = 2; divisor <= x; divisor++)
@@ -61,7 +61,7 @@ int main()
         int i;
         for (i = n; i >= 2; i--)
         {
-            if (prime_Or_Not(i))
+            if (primeOrNot(i))
             {
                 int k = i, l = i;
                 ;
