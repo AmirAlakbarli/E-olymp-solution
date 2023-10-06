@@ -22,8 +22,8 @@ int *simplicity(int num1, int num2)
     {
         if (num1 == num2)
             break;
-        resNum1 += (num1 % 10) * degree;
-        resNum2 += (num2 % 10) * degree;
+        resNum1 += num1 % 10 * degree;
+        resNum2 += num2 % 10 * degree;
         num1 /= 10;
         num2 /= 10;
         degree *= 10;

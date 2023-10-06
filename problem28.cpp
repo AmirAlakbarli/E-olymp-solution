@@ -38,7 +38,7 @@ int main()
     vector<llu> logs;
     for (llu i = 0; i < divs.size(); i++)
     {
-        llu logOfNum = log(n) / log(divs[i]);
+        llu logOfNum = (llu) log(n) / log(divs[i]);
         logs.push_back(logOfNum);
     }
 
@@ -86,8 +86,6 @@ int main()
     {
         i--;
     }
-
-    // printf("i:%d\n", i);
 
     if (flag)
     {
