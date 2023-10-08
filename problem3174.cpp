@@ -5,22 +5,40 @@ using namespace std;
 typedef unsigned long long llu;
 
 const int mod = 1000003;
-llu dp[1000][1000];
+llu dp[1000], DelNums[1000];
 int bpoint = 0;
 
-void Delannoy(int n, int bp)
+void Delannoy(int n)
 {
-    for (int i = bp; i < n; i++)
-        dp[i][0] = dp[0][i] = 1;
-
-    for (int i = bp; i < n; i++)
+    int endPoint = bpoint + n;
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j <= i; j++)
+        int temp = dp[0];
+        dp[0] = 1;
+        int j = 0;
+
+        while (j < bpoint + i)
         {
-            dp[i][j] = dp[i - 1][j] + dp[i][j - 1] + dp[i - 1][j - 1];
-            dp[i][j] = dp[i][j] % mod;
-            dp[j][i] = dp[i][j];
+            if (j > 0)
+            {
+                int temp1 = dp[j];
+                dp[j] = dp[j - 1] + dp[j] + temp;
+                dp[j] %= mod;
+                temp = temp1;
+            }
+
+            j++;
         }
+
+        if (j == 0)
+        {
+            DelNums[j] = dp[j];
+            continue;
+        }
+
+        dp[j] = 2 * dp[j - 1] + DelNums[j - 1];
+        dp[j] %= mod;
+        DelNums[j] = dp[j];
     }
 }
 
@@ -33,9 +51,9 @@ int main()
         scanf("%d", &n);
         if (n > bpoint)
         {
-            Delannoy(n, bpoint);
+            Delannoy(n - bpoint);
             bpoint = n;
         }
-        printf("%llu\n", dp[n - 1][n - 1]);
+        printf("%llu\n", DelNums[n - 1]);
     }
 }
