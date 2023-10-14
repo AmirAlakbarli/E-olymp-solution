@@ -2,30 +2,21 @@
 
 int main()
 {
-    int n, m;
+    int n, m, num, rowSum;
     scanf("%d%d", &n, &m);
-    int matrix[n + 1][m + 1];
+    int colSum[m];
+    for (int i = 0; i < m; i++)
+        colSum[i] = 0;
 
-    for (int i = 0; i < n + 1; i++)
-        matrix[i][0] = 0;
-    for (int i = 0; i < m + 1; i++)
-        matrix[0][i] = 0;
-
-    int num;
-    for (int i = 1; i < n + 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j < m + 1; j++)
+        rowSum = 0;
+        for (int j = 0; j < m; j++)
         {
             scanf("%d", &num);
-            matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1] - matrix[i - 1][j - 1] + num;
-        }
-    }
-
-    for (int i = 1; i < n + 1; i++)
-    {
-        for (int j = 1; j < m + 1; j++)
-        {
-            printf("%d ", matrix[i][j]);
+            rowSum += num;
+            colSum[j] += rowSum;
+            printf("%d ", colSum[j]);
         }
         printf("\n");
     }
