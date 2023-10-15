@@ -1,24 +1,23 @@
 #include <stdio.h>
 
-typedef unsigned long long llu;
-
 int main()
 {
-    int n, m, num;
-    scanf("%d%d", &n, &m);
-    int path[n + 1][m + 1][2];
+    short n, m;
+    int num;
+    scanf("%hd%hd", &n, &m);
+    short path[n + 1][m + 1][2];
     path[1][1][0] = -1;
     path[1][1][1] = -1;
 
-    llu colSum[m + 1], rowSum;
+    int colSum[m + 1], rowSum;
 
-    for (int i = 1; i <= m; i++)
+    for (short i = 1; i <= m; i++)
         colSum[i] = 0;
 
-    for (int i = 1; i <= n; i++)
+    for (short i = 1; i <= n; i++)
     {
         rowSum = 0;
-        for (int j = 1; j <= m; j++)
+        for (short j = 1; j <= m; j++)
         {
 
             scanf("%d", &num);
@@ -57,17 +56,17 @@ int main()
         }
     }
 
-    printf("%llu\n", colSum[m]);
+    printf("%d\n", colSum[m]);
 
-    int shortPath[n + m - 1][2];
-    int i = n, j = m, k = 0;
+    short shortPath[n + m - 1][2];
+    short i = n, j = m, k = 0;
     while (i != 1 || j != 1)
     {
         shortPath[k][0] = i;
         shortPath[k][1] = j;
         k++;
-        int tempI = path[i][j][0];
-        int tempJ = path[i][j][1];
+        short tempI = path[i][j][0];
+        short tempJ = path[i][j][1];
         i = tempI;
         j = tempJ;
     }
@@ -75,9 +74,9 @@ int main()
     shortPath[k][0] = 1;
     shortPath[k][1] = 1;
 
-    for (int i = k; i >= 0; i--)
+    for (short i = k; i >= 0; i--)
     {
-        printf("%d %d", shortPath[i][0], shortPath[i][1]);
+        printf("%hd %hd", shortPath[i][0], shortPath[i][1]);
         if (i != 0)
             printf("\n");
     }
