@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-using namespace std;
-
 long pow(int x, int n)
 {
     if (n == 0)

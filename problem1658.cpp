@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-using namespace std;
-
 typedef unsigned long long llu;
 
 int main()

@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-using namespace std;
-
 typedef unsigned long long llu;
 
 const int mod = 1000003;

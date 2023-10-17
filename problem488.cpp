@@ -10,7 +10,7 @@ int main()
     {
         for (int j = 0; j < n; j++)
         {
-            printf("%d ", (n * (2 * i + 1) - 1) * (i % 2) + (int)pow(-1, i % 2) * (n * i + j)+1);
+            printf("%d ", (n * (2 * i + 1) - 1) * (i % 2) + (int)pow(-1, i % 2) * (n * i + j) + 1);
         }
         putchar('\n');
     }

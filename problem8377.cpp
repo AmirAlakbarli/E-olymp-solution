@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-using namespace std;
-
 int productOfDigits(int n)
 {
     int product = 1;

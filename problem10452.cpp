@@ -1,10 +1,8 @@
 #include <stdio.h>
 
-using namespace std;
-
 typedef unsigned long long llu;
 
-int main()  
+int main()
 {
     llu t;
     scanf("%llu", &t);
@@ -14,7 +12,7 @@ int main()
         llu n;
         scanf("%llu", &n);
         int endNum = n % 2 ? 2 : 1;
-        llu diff =  (n - 1 + endNum) / 2 *(n + 1 - endNum);
+        llu diff = (n - 1 + endNum) / 2 * (n + 1 - endNum);
         printf("%llu\n", diff);
     }
 }

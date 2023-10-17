@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+
 int primeOrNot(int x)
 {
     int divisor;
@@ -16,6 +17,7 @@ int primeOrNot(int x)
     else
         return 0;
 }
+
 int main()
 {
     unsigned long long int n;

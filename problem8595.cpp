@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <math.h>
+#include <cmath>
+
 #define MOD_NUM 1000000007
 
 int main()

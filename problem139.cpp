@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <math.h>
+
 int main()
 {
   int A, B, C, D, K, i, x;
-  unsigned long long int N;
+  unsigned long long N;
   scanf("%d %d %d %d %llu %d", &A, &B, &C, &D, &N, &K);
   int max = 0;
   for (i = 1; i <= K; i++)

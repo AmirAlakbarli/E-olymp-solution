@@ -17,7 +17,7 @@ int *simplicity(int num1, int num2)
 {
     int resNum1 = 0, resNum2 = 0;
     int degree = 1;
-    int *res = malloc(2 * sizeof(int));
+    int *res = (int *)malloc(2 * sizeof(int));
     while (num1 > 0 && num2 > 0)
     {
         if (num1 == num2)
@@ -53,7 +53,7 @@ int sameSizeProcess(int num1)
         {
             int res = 1;
             int arrCommit = num1 / (int)(pow(10, arrDegree)) * (int)(pow(10, arrDegree));
-            int *smallNumbers = malloc(arrDegree * sizeof(int));
+            int *smallNumbers = (int *)malloc(arrDegree * sizeof(int));
             for (int i = 0; i < arrDegree; i++)
             {
                 smallNumbers[i] = arrCommit + pow(10, i);

@@ -1,7 +1,4 @@
 #include <stdio.h>
-#include <vector>
-
-using namespace std;
 
 typedef unsigned long long llu;
 

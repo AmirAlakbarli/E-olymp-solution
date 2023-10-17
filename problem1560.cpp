@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-using namespace std;
-
 int n, dp[1000001];
 
 int f(int n)
