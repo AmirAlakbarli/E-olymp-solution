@@ -1,5 +1,12 @@
 {
   "files.associations": {
-    "cmath": "cpp"
+    "*.tcc": "cpp",
+    "chrono": "cpp",
+    "cinttypes": "cpp",
+    "cmath": "cpp",
+    "complex": "cpp",
+    "numeric": "cpp",
+    "ratio": "cpp",
+    "cstdlib": "cpp"
   }
 }

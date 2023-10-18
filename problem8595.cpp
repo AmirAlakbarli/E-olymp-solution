@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include <cmath>
+#include <math.h>
 
 #define MOD_NUM 1000000007
 
 int main()
 {
-    unsigned long n, m;
+    int n, m;
     unsigned long long res = 1;
-    scanf("%lu%lu", &n, &m);
+    scanf("%d%d", &n, &m);
     if (abs(n - m) >= 2)
         res = 0;
     else if (abs(n - m) == 1)
