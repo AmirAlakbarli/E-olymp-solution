@@ -6,33 +6,23 @@ typedef unsigned long long llu;
 int main()
 {
     int n;
-    short k;
+    llu k;
 
-    scanf("%d %hd", &n, &k);
+    scanf("%d%llu", &n, &k);
     llu res = 1;
 
     int lastProduct = n % 2 ? n - 1 : k * n / 2 + n / 2 - 1;
     int pow = (n + 1) / 2;
 
-    // convert pow to binary
-    int bin[32] = {0};
-    int binLen = 0;
-    while (pow > 0)
-    {
-        bin[binLen++] = pow % 2;
-        pow /= 2;
-    }
+    k %= MOD_NUM;
 
-    for (int i = binLen - 1; i > 0; --i)
+    for (; pow; pow >>= 1)
     {
-        if (bin[i])
+        if (pow & 1)
             res = res * k % MOD_NUM;
 
-        res = res * res % MOD_NUM;
+        k = k * k % MOD_NUM;
     }
-
-    if (bin[0])
-        res = res * k % MOD_NUM;
 
     res = (res * lastProduct) % MOD_NUM;
 

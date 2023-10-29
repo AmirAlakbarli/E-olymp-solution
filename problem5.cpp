@@ -1,7 +1,7 @@
 #include <iostream>
+#include <cmath>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 
 using namespace std;
 
@@ -24,16 +24,13 @@ void generateMultiplicativePartitions(int n, vector<int> &factors, vector<vector
     }
 }
 
-int isPrime(int k)
+int isPrime(int n)
 {
-    if (k <= 1)
+    if (n <= 1 || n > 3 && (n % 2 == 0 || n % 3 == 0))
         return 0;
-    if (k == 2 || k == 3)
-        return 1;
-    if (k % 2 == 0 || k % 3 == 0)
-        return 0;
-    for (int i = 5; i * i <= k; i = i + 6)
-        if (k % i == 0 || k % (i + 2) == 0)
+
+    for (int i = 5, t = 2; i * i <= n; i += t, t = 6 - t)
+        if (n % i == 0)
             return 0;
 
     return 1;
@@ -56,6 +53,8 @@ int nthPrime(int n)
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);    
     int n, num1, num2;
     cin >> n;
     num1 = 2 * n;

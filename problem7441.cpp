@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
+
+typedef unsigned long long llu;
 
 int primeOrNot(int x)
 {
@@ -20,9 +20,9 @@ int primeOrNot(int x)
 
 int main()
 {
-    unsigned long long int n;
-    unsigned long long int a = 3469708049238200000;
-    unsigned long long int remainder = 1;
+    llu n;
+    llu a = 3469708049238200000;
+    llu remainder = 1;
     scanf("%llu", &n);
     if (n == 38)
         printf("%llu", 2768829913511200000);
@@ -66,8 +66,7 @@ int main()
             if (primeOrNot(i))
             {
                 int k = i, l = i;
-                ;
-                unsigned long long int m = n;
+                llu m = n;
                 while (m > 0)
                 {
                     int t;
