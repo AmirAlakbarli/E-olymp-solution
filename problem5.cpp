@@ -38,23 +38,30 @@ int isPrime(int n)
 
 int nthPrime(int n)
 {
-    int i = 2;
-
-    while (n > 0)
+    int res;
+    if (n >= 1)
+        res = 2;
+    if (n >= 2)
+        res = 3;
+    if (n >= 3)
     {
-        if (isPrime(i))
-            n--;
-
-        i++;
+        int count = 2;
+        for (int i = 5, t = 2; count < n; i += t, t = 6 - t)
+        {
+            if (isPrime(i))
+            {
+                count++;
+                res = i;
+            }
+        }
     }
-    i--;
-    return i;
+    return res;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);    
+    cin.tie(NULL);
     int n, num1, num2;
     cin >> n;
     num1 = 2 * n;
