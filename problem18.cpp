@@ -28,6 +28,7 @@ int main()
         b = (b + 2) / 3;
         res += 6;
     }
+
     if (b == 4)
         res += 8;
     else if (b == 3)
