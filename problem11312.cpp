@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -36,10 +37,7 @@ string minusLargeNumber(const string &num1, const string &num2)
 
         result = to_string(diff) + result;
 
-        if (i >= 0)
-            i--;
-        if (j >= 0)
-            j--;
+        i--, j--;
     }
 
     // Remove leading zeros from the result
@@ -52,8 +50,6 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
-    return 0;
 
     string num;
     cin >> num;
