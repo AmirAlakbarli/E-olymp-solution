@@ -2,13 +2,17 @@
 
 int main()
 {
-    int x, n, m;
-    scanf("%d%d%d", &x, &n, &m);
-    long mod = 1;
-    for (int i = 0; i < n; i++)
+    long long x;
+    int n, m;
+    scanf("%lld%d%d", &x, &n, &m);
+    long long res = 1;
+    while (n)
     {
-        mod = (mod * x) % m;
+        if (n & 1)
+            res = res * x % m;
+        x = x * x % m;
+        n >>= 1;
     }
 
-    printf("%ld", mod);
+    printf("%lld", res);
 }

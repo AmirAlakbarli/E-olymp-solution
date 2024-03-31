@@ -1,16 +1,11 @@
 #include <stdio.h>
+using namespace std;
 
 int main()
 {
-    int a;
-    scanf("%d", &a);
-    int count = 0;
-    while (a >= 0)
-    {
-        a /= 10;
-        count++;
-        if (a == 0)
-            break;
-    }
-    printf("%d", count);
+    int res = 0;
+    char digit;
+    while ((digit = getchar()) != '\n')
+        res++;
+    printf("%d", res);
 }

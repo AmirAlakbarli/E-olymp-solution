@@ -12,7 +12,6 @@ int main()
 
     while (c < k)
     {
-
         n = n % m * 10;
         c++;
         printf("%d", n / m);

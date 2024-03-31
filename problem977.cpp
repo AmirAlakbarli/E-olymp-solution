@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
+
 using namespace std;
+
 #define N 105
+
 int g[N][N];
 bool vis[N];
 int n;
@@ -33,9 +36,10 @@ int main()
 
     if (m != n - 1)
     {
-        cout << "NO\n";
+        cout << "NO";
         return 0;
     }
+    
     dfs(0);
     for (int i = 0; i < n; i++)
     {
@@ -45,5 +49,5 @@ int main()
             return 0;
         }
     }
-    cout << "YES\n";
+    cout << "YES";
 }

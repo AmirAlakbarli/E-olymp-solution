@@ -1,30 +1,49 @@
-#include <iostream>
-
-using namespace std;
+#include <stdio.h>
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    char a[100002];
+    char digit;
+    short len_a = 0, len_b = 0;
+    char res = '=';
+    bool flag = false;
 
-    string a, b;
-    cin >> a >> b;
+    do
+    {
+        digit = getchar();
+        a[len_a++] = digit;
+    } while (digit != '\n');
 
-    int len_a = a.length();
-    int len_b = b.length();
+    len_a--;
+
+    do
+    {
+        digit = getchar();
+        if (len_b > len_a)
+        {
+            res = '<';
+            break;
+        }
+        if (a[len_b] > digit && !flag)
+        {
+            res = '>';
+            flag = true;
+        }
+        else if (a[len_b] < digit && !flag)
+        {
+            res = '<';
+            flag = true;
+        }
+
+        len_b++;
+    } while (digit != '\n');
+
+    len_b--;
 
     if (len_a > len_b)
-        cout << ">";
+        res = '>';
     else if (len_a < len_b)
-        cout << "<";
-    else
-    {
-        int compare = a.compare(b);
-        if (compare > 0)
-            cout << ">";
-        else if (compare < 0)
-            cout << "<";
-        else
-            cout << "=";
-    }
+        res = '<';
+
+    printf("%c", res);
 }

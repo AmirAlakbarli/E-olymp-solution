@@ -2,7 +2,6 @@
 #include <vector>
 
 using namespace std;
-
 typedef unsigned long long llu;
 
 int abs(int a)

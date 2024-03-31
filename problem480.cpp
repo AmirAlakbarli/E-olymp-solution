@@ -1,10 +1,9 @@
 #include <stdio.h>
-typedef long long ll;
 
 int main()
 {
     __int128_t a;
-    ll b, m, res = 1;
+    long long b, m, res = 1;
     scanf("%lld %lld %lld", &a, &b, &m);
 
     while (b)
